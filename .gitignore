@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+
+# Pytest
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDE
+.vscode/
+.idea/
+
+# Λειτουργικά Συστήματα
+.DS_Store

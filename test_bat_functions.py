@@ -2,10 +2,12 @@
 
 import pytest
 import bat_functions
+import time
 from bat_functions import (
     calculate_bat_power,
     signal_strength,
     get_bat_vehicle,
+    fetch_joker_info,
 )
 
 # --------------------------
@@ -64,9 +66,13 @@ def test_get_bat_vehicle_unknown():
 # Exercise 3: Mocking
 # --------------------------
 
+# test_bat_functions.py
+
 def test_fetch_joker_info_mocked(mocker):
-    """Tests fetch_joker_info with mocked response."""
-    mock_data = {"mischief_level": 0, "location": "captured"}
-    mocker.patch("bat_functions.fetch_joker_info", return_value=mock_data)
-    result = bat_functions.fetch_joker_info()
-    assert result == mock_data
+    """Tests fetch_joker_info with mocked time.sleep."""
+    mock_sleep = mocker.patch("bat_functions.time.sleep")
+    from bat_functions import fetch_joker_info
+    result = fetch_joker_info()
+    assert isinstance(result, dict)
+    assert result == {'mischief_level': 100, 'location': 'unknown'}
+    mock_sleep.assert_called_once_with(1)
