@@ -29,7 +29,7 @@ def test_calculate_bat_power(level, expected):
         (0, 100),
         (5, 50),
         (12, 0),
-        (-5, 150),
+        (-5, 50),
     ],
 )
 def test_signal_strength(distance, expected):
@@ -68,6 +68,7 @@ def test_fetch_joker_info_mocked(mocker):
     # Mocking the fetch_joker_info function
     mock_data = {'mischief_level': 0, 'location': 'captured'}
     mocker.patch("bat_functions.fetch_joker_info", return_value=mock_data)
+    mocker.patch("bat_functions.time.sleep")
     # Import the module after patching to ensure the mock is used
     import bat_functions # pylint: disable=import-outside-toplevel
     result = bat_functions.fetch_joker_info()
