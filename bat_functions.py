@@ -1,4 +1,5 @@
 # bat_functions.py
+"""Module containing Batman-related utility functions."""
 
 import time
 
@@ -29,8 +30,7 @@ def get_bat_vehicle(vehicle_name: str) -> dict:
     }
     if vehicle_name in vehicles:
         return vehicles[vehicle_name]
-    else:
-        raise ValueError(f"Unknown vehicle: {vehicle_name}")
+    raise ValueError(f"Unknown vehicle: {vehicle_name}")
 
 def fetch_joker_info() -> dict:
     """
