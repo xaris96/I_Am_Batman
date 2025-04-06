@@ -15,7 +15,7 @@ def signal_strength(distance: float) -> float:
     Calculates the strength of the Bat-Signal based on the distance.
     The strength decreases by 10 units per kilometer, but never goes below 0.
     """
-    distance = abs(distance)  # Ensure distance is non-negative. the minus sign is only for direction.
+    distance = abs(distance)  # Ensure distance is non-negative
     strength = 100 - (distance * 10)
     return max(0, strength)
 
